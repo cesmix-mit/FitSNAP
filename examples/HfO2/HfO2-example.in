@@ -1,0 +1,63 @@
+[BISPECTRUM]
+numTypes = 2
+twojmax = 10 10
+rcutfac = 4.5
+rfac0 = 0.99363
+rmin0 = 0.0
+wj = 1.0 0.96
+radelem = 0.5 0.42
+type = Hf O
+wselfallflag = 0
+chemflag = 0
+bzeroflag = 1
+bnormflag = 0
+quadraticflag = 0
+
+[CALCULATOR]
+calculator = LAMMPSSNAP
+energy = 1
+force = 1
+stress = 1
+
+[ESHIFT]
+Hf = 0.0
+O = 0.0
+
+[SOLVER]
+solver = SVD
+compute_testerrs = 1
+detailed_errors = 0
+
+[SCRAPER]
+scraper = XYZ
+
+[PATH]
+dataPath = data
+
+[OUTFILE]
+metrics = HfO2_metrics.md
+potential = HfO2_pot
+
+[REFERENCE]
+units = metal
+atom_style = atomic
+pair_style = hybrid/overlay zero 10.0 zbl 4.0 4.8
+pair_coeff1 = * * zero
+pair_coeff2 = 1 1 zbl 72 72
+pair_coeff3 = 1 2 zbl 72 8
+pair_coeff4 = 2 2 zbl 8 8
+
+[GROUPS]
+group_sections = name size eweight fweight vweight
+group_types = str float float float float
+smartweights = 1
+random_sampling = 1
+HfO2_relax_1000 = 0.8 25 250 1.0e-10
+
+[EXTRAS]
+dump_descriptors = 0
+dump_truth = 0
+dump_weights = 0
+
+[MEMORY]
+override = 0
